@@ -4,4 +4,5 @@ import Blockchain from "./Blockchain.js";
 var b = new Blockchain();
 
 b.addBlock("Second");
-b.addBlock("tirde");
+b.addBlock("thirde");
+b.vaildateBlockchsin();

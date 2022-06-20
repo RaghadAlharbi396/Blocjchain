@@ -1,5 +1,4 @@
 import sha256 from 'crypto-js/sha256.js';
-//const hash = require('crypto-js/sha256.js'); 
 
 class Block{
  nonce;
@@ -13,28 +12,28 @@ this.prevHash = prevHash;
 }
 calculateHash(){
   return sha256(
-    this.haight + this.timestamp + this.data + this.prevHash
+    this.haight + this.timestamp + this.data + this.prevHash + this.nonce
   ).toString();
   
 }
 maining(){
-   var difficulty = 4;
+   var difficulty = 2;
    var timetry = 0;
    var j = 10000000;
 
   
     for(var i=0 ; i < j; i++){
+      timetry++;
         let magichash =sha256(
           this.haight + this.timestamp + this.data + this.prevHash + timetry
         ).toString();
     console.log(magichash);
-    if(magichash.substring(0,difficulty) == "0000"){
+    if(magichash.substring(0,difficulty) == "00"){
         console.log("magichash:"+ magichash);
        console.log("time trying:"+timetry);
     
         return [magichash,timetry];
     }
-    else timetry++;
     }
   
 }
