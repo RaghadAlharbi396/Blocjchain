@@ -20,9 +20,8 @@ console.log(this.chain);
     return this.chain[this.chain.length -1];
   }
   addBlock(data){
-    let lastBlock = this.chain[this.chain.length -1];
-    var newPrevHash = lastBlock.hash;
-    var oldHaight = lastBlock.haight;
+    var newPrevHash = this.getLastBlock().hash;
+    var oldHaight = this.getLastBlock().haight;
     var newBlock = new Block(oldHaight+1 ,Date.now,data,newPrevHash);
     this.chain.push(newBlock);
     console.log(newBlock);
